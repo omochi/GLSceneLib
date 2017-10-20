@@ -6,6 +6,12 @@ open class SceneNode {
         addElement(element)
     }
     
+    deinit {
+        deinitEvent.emit(())
+    }
+    
+    public let deinitEvent = EventEmitter<Void>()
+    
     public private(set) weak var scene: Scene?
     public private(set) weak var parent: SceneNode?
     public private(set) var children: [SceneNode] = []

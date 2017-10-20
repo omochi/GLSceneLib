@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		D604B2C01F99ED4600482A27 /* DebugReflect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D604B2C11F99ED4600482A27 /* DebugReflect.framework */; };
+		D604B2C41F99FD7C00482A27 /* Disposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604B2C31F99FD7C00482A27 /* Disposer.swift */; };
+		D604B2C61F99FF4A00482A27 /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604B2C51F99FF4A00482A27 /* DisposeBag.swift */; };
+		D604B2C81F9A003600482A27 /* EventSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604B2C71F9A003600482A27 /* EventSource.swift */; };
+		D604B2CA1F9A02DD00482A27 /* EventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604B2C91F9A02DD00482A27 /* EventEmitter.swift */; };
+		D604B2CC1F9A0AA900482A27 /* CompositeDisposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604B2CB1F9A0AA900482A27 /* CompositeDisposer.swift */; };
 		D6A4F51A1F99DA6D00EC0C9B /* GLSceneLib_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D6A4F5181F99DA6D00EC0C9B /* GLSceneLib_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6A4F55B1F99DAB600EC0C9B /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5221F99DAB600EC0C9B /* Angle.swift */; };
 		D6A4F55C1F99DAB600EC0C9B /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5231F99DAB600EC0C9B /* ArrayExtension.swift */; };
@@ -67,6 +72,11 @@
 
 /* Begin PBXFileReference section */
 		D604B2C11F99ED4600482A27 /* DebugReflect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DebugReflect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D604B2C31F99FD7C00482A27 /* Disposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposer.swift; sourceTree = "<group>"; };
+		D604B2C51F99FF4A00482A27 /* DisposeBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeBag.swift; sourceTree = "<group>"; };
+		D604B2C71F9A003600482A27 /* EventSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSource.swift; sourceTree = "<group>"; };
+		D604B2C91F9A02DD00482A27 /* EventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEmitter.swift; sourceTree = "<group>"; };
+		D604B2CB1F9A0AA900482A27 /* CompositeDisposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeDisposer.swift; sourceTree = "<group>"; };
 		D6A4F5151F99DA6D00EC0C9B /* GLSceneLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GLSceneLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A4F5181F99DA6D00EC0C9B /* GLSceneLib_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSceneLib_iOS.h; sourceTree = "<group>"; };
 		D6A4F5191F99DA6D00EC0C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,6 +156,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D604B2C21F99FD6000482A27 /* Reactive */ = {
+			isa = PBXGroup;
+			children = (
+				D604B2C31F99FD7C00482A27 /* Disposer.swift */,
+				D604B2C51F99FF4A00482A27 /* DisposeBag.swift */,
+				D604B2CB1F9A0AA900482A27 /* CompositeDisposer.swift */,
+				D604B2C71F9A003600482A27 /* EventSource.swift */,
+				D604B2C91F9A02DD00482A27 /* EventEmitter.swift */,
+			);
+			path = Reactive;
+			sourceTree = "<group>";
+		};
 		D6A4F50B1F99DA6D00EC0C9B = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				D6A4F5211F99DAB600EC0C9B /* Base */,
+				D604B2C21F99FD6000482A27 /* Reactive */,
 				D6A4F5351F99DAB600EC0C9B /* Element */,
 				D6A4F53E1F99DAB600EC0C9B /* GL */,
 				D6A4F5481F99DAB600EC0C9B /* Scene */,
@@ -349,6 +372,7 @@
 				D6A4F55B1F99DAB600EC0C9B /* Angle.swift in Sources */,
 				D6A4F5631F99DAB600EC0C9B /* Matrix4x4.swift in Sources */,
 				D6A4F5831F99DAB600EC0C9B /* ColorLineShader.swift in Sources */,
+				D604B2C81F9A003600482A27 /* EventSource.swift in Sources */,
 				D6A4F5901F99DAB600EC0C9B /* VertexSerializerProtocol.swift in Sources */,
 				D6A4F5731F99DAB600EC0C9B /* RenderSetting.swift in Sources */,
 				D6A4F5691F99DAB600EC0C9B /* StringExtension.swift in Sources */,
@@ -366,6 +390,7 @@
 				D6A4F5841F99DAB600EC0C9B /* ColorShader.swift in Sources */,
 				D6A4F5801F99DAB600EC0C9B /* Camera.swift in Sources */,
 				D6A4F5711F99DAB600EC0C9B /* LineElement.swift in Sources */,
+				D604B2C61F99FF4A00482A27 /* DisposeBag.swift in Sources */,
 				D6A4F58D1F99DAB600EC0C9B /* ShaderProtocol.swift in Sources */,
 				D6A4F56C1F99DAB600EC0C9B /* Vector4.swift in Sources */,
 				D6A4F57E1F99DAB600EC0C9B /* GLVertexArray.swift in Sources */,
@@ -373,6 +398,7 @@
 				D6A4F56D1F99DAB600EC0C9B /* WeakBox.swift in Sources */,
 				D6A4F5621F99DAB600EC0C9B /* GenericError.swift in Sources */,
 				D6A4F56E1F99DAB600EC0C9B /* BasicSceneElementProtocol.swift in Sources */,
+				D604B2CC1F9A0AA900482A27 /* CompositeDisposer.swift in Sources */,
 				D6A4F5651F99DAB600EC0C9B /* OptionalExtension.swift in Sources */,
 				D6A4F56B1F99DAB600EC0C9B /* Vector3.swift in Sources */,
 				D6A4F56F1F99DAB600EC0C9B /* ExtrudeSolid.swift in Sources */,
@@ -394,10 +420,12 @@
 				D6A4F5771F99DAB600EC0C9B /* GLDataConvert.swift in Sources */,
 				D6A4F5811F99DAB600EC0C9B /* ColorLineCirclePrimitive.swift in Sources */,
 				D6A4F55D1F99DAB600EC0C9B /* Assert.swift in Sources */,
+				D604B2C41F99FD7C00482A27 /* Disposer.swift in Sources */,
 				D6A4F5891F99DAB600EC0C9B /* SceneElement.swift in Sources */,
 				D6A4F58F1F99DAB600EC0C9B /* VertexAttributeDefinition.swift in Sources */,
 				D6A4F5851F99DAB600EC0C9B /* DirectionalLight.swift in Sources */,
 				D6A4F58A1F99DAB600EC0C9B /* SceneNode.swift in Sources */,
+				D604B2CA1F9A02DD00482A27 /* EventEmitter.swift in Sources */,
 				D6A4F58C1F99DAB600EC0C9B /* ShaderPrimitive.swift in Sources */,
 				D6A4F5601F99DAB600EC0C9B /* Color.swift in Sources */,
 			);
