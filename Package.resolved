@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DebugReflect",
+        "repositoryURL": "https://github.com/omochi/DebugReflect.git",
+        "state": {
+          "branch": null,
+          "revision": "1ba82d671bc5c48488c8cf7dd01cec6e4e9f6ca8",
+          "version": "0.3.5"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

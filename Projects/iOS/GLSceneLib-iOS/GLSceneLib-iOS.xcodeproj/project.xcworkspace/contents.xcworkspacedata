@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../../../../.build/checkouts/DebugReflect.git-1390228388869925569/DebugReflect.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "self:GLSceneLib-iOS.xcodeproj">
+   </FileRef>
+</Workspace>
