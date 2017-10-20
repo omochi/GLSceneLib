@@ -21,7 +21,7 @@ public struct GenericError : Error, CustomStringConvertible {
         return str
     }
     
-    public static func wrapError<R>(_ message: String, _ f: () throws -> R) rethrows -> R {
+    public static func wrapError<R>(message: String, _ f: () throws -> R) rethrows -> R {
         do {
             return try f()
         } catch let e {
