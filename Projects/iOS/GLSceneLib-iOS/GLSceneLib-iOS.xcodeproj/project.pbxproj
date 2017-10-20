@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D604B2C01F99ED4600482A27 /* DebugReflect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D604B2C11F99ED4600482A27 /* DebugReflect.framework */; };
 		D6A4F51A1F99DA6D00EC0C9B /* GLSceneLib_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D6A4F5181F99DA6D00EC0C9B /* GLSceneLib_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6A4F55B1F99DAB600EC0C9B /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5221F99DAB600EC0C9B /* Angle.swift */; };
 		D6A4F55C1F99DAB600EC0C9B /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5231F99DAB600EC0C9B /* ArrayExtension.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D604B2C11F99ED4600482A27 /* DebugReflect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DebugReflect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A4F5151F99DA6D00EC0C9B /* GLSceneLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GLSceneLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A4F5181F99DA6D00EC0C9B /* GLSceneLib_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSceneLib_iOS.h; sourceTree = "<group>"; };
 		D6A4F5191F99DA6D00EC0C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,18 +131,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D604B2C01F99ED4600482A27 /* DebugReflect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D604B2BF1F99ED4600482A27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D604B2C11F99ED4600482A27 /* DebugReflect.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D6A4F50B1F99DA6D00EC0C9B = {
 			isa = PBXGroup;
 			children = (
 				D6A4F5201F99DAB600EC0C9B /* GLSceneLib */,
 				D6A4F5171F99DA6D00EC0C9B /* GLSceneLib-iOS */,
 				D6A4F5161F99DA6D00EC0C9B /* Products */,
+				D604B2BF1F99ED4600482A27 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
