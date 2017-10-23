@@ -13,6 +13,9 @@
 		D604B2C81F9A003600482A27 /* EventSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604B2C71F9A003600482A27 /* EventSource.swift */; };
 		D604B2CA1F9A02DD00482A27 /* EventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604B2C91F9A02DD00482A27 /* EventEmitter.swift */; };
 		D604B2CC1F9A0AA900482A27 /* CompositeDisposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D604B2CB1F9A0AA900482A27 /* CompositeDisposer.swift */; };
+		D63EA3181F9DBAE100E9CBAA /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA3171F9DBAE100E9CBAA /* Property.swift */; };
+		D63EA31A1F9DC9B800E9CBAA /* EventMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA3191F9DC9B800E9CBAA /* EventMap.swift */; };
+		D63EA31C1F9DCF1500E9CBAA /* EventFlatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA31B1F9DCF1500E9CBAA /* EventFlatMap.swift */; };
 		D6A4F51A1F99DA6D00EC0C9B /* GLSceneLib_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D6A4F5181F99DA6D00EC0C9B /* GLSceneLib_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6A4F55B1F99DAB600EC0C9B /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5221F99DAB600EC0C9B /* Angle.swift */; };
 		D6A4F55C1F99DAB600EC0C9B /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5231F99DAB600EC0C9B /* ArrayExtension.swift */; };
@@ -77,6 +80,9 @@
 		D604B2C71F9A003600482A27 /* EventSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSource.swift; sourceTree = "<group>"; };
 		D604B2C91F9A02DD00482A27 /* EventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEmitter.swift; sourceTree = "<group>"; };
 		D604B2CB1F9A0AA900482A27 /* CompositeDisposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeDisposer.swift; sourceTree = "<group>"; };
+		D63EA3171F9DBAE100E9CBAA /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		D63EA3191F9DC9B800E9CBAA /* EventMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMap.swift; sourceTree = "<group>"; };
+		D63EA31B1F9DCF1500E9CBAA /* EventFlatMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFlatMap.swift; sourceTree = "<group>"; };
 		D6A4F5151F99DA6D00EC0C9B /* GLSceneLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GLSceneLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A4F5181F99DA6D00EC0C9B /* GLSceneLib_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSceneLib_iOS.h; sourceTree = "<group>"; };
 		D6A4F5191F99DA6D00EC0C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,6 +170,9 @@
 				D604B2CB1F9A0AA900482A27 /* CompositeDisposer.swift */,
 				D604B2C71F9A003600482A27 /* EventSource.swift */,
 				D604B2C91F9A02DD00482A27 /* EventEmitter.swift */,
+				D63EA3171F9DBAE100E9CBAA /* Property.swift */,
+				D63EA3191F9DC9B800E9CBAA /* EventMap.swift */,
+				D63EA31B1F9DCF1500E9CBAA /* EventFlatMap.swift */,
 			);
 			path = Reactive;
 			sourceTree = "<group>";
@@ -375,6 +384,7 @@
 				D604B2C81F9A003600482A27 /* EventSource.swift in Sources */,
 				D6A4F5901F99DAB600EC0C9B /* VertexSerializerProtocol.swift in Sources */,
 				D6A4F5731F99DAB600EC0C9B /* RenderSetting.swift in Sources */,
+				D63EA31C1F9DCF1500E9CBAA /* EventFlatMap.swift in Sources */,
 				D6A4F5691F99DAB600EC0C9B /* StringExtension.swift in Sources */,
 				D6A4F5721F99DAB600EC0C9B /* MeshElement.swift in Sources */,
 				D6A4F5751F99DAB600EC0C9B /* SweepSurfaceShapes.swift in Sources */,
@@ -398,7 +408,9 @@
 				D6A4F56D1F99DAB600EC0C9B /* WeakBox.swift in Sources */,
 				D6A4F5621F99DAB600EC0C9B /* GenericError.swift in Sources */,
 				D6A4F56E1F99DAB600EC0C9B /* BasicSceneElementProtocol.swift in Sources */,
+				D63EA31A1F9DC9B800E9CBAA /* EventMap.swift in Sources */,
 				D604B2CC1F9A0AA900482A27 /* CompositeDisposer.swift in Sources */,
+				D63EA3181F9DBAE100E9CBAA /* Property.swift in Sources */,
 				D6A4F5651F99DAB600EC0C9B /* OptionalExtension.swift in Sources */,
 				D6A4F56B1F99DAB600EC0C9B /* Vector3.swift in Sources */,
 				D6A4F56F1F99DAB600EC0C9B /* ExtrudeSolid.swift in Sources */,
