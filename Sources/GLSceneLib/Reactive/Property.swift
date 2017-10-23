@@ -1,11 +1,3 @@
-//
-//  Property.swift
-//  GLSceneLib
-//
-//  Created by omochimetaru on 2017/10/23.
-//  Copyright © 2017年 omochimetaru. All rights reserved.
-//
-
 import Foundation
 
 public class Property<T> : EventSourceProtocol {    
