@@ -17,6 +17,10 @@ public class EventSource<Event> : EventSourceProtocol {
         self._addHandler = { base.addHandler($0) }
     }
     
+    public init(_ addHandler: @escaping (@escaping (Event) -> ()) -> Disposer) {
+        self._addHandler = addHandler
+    }
+    
     public func addHandler(_ handler: @escaping (Event) -> ()) -> Disposer {
         return _addHandler(handler)
     }
@@ -24,3 +28,14 @@ public class EventSource<Event> : EventSourceProtocol {
     private let _addHandler: (@escaping (Event) -> ()) -> Disposer
 }
 
+extension EventSource {
+    public static func of(_ x: Event) -> EventSource<Event> {
+        return Property<Event>(x).asEventSource()
+    }
+    
+    public static func never() -> EventSource<Event> {
+        return EventSource.init { handler in
+            Disposer {}
+        }
+    }
+}

@@ -1,11 +1,13 @@
-public class EventSourceMap<X: EventSourceProtocol, U> : EventSourceProtocol {
-    public init(_ source: X, _ f: @escaping (X.Event) -> U) {
+public class EventSourceMap<TSource: EventSourceProtocol, U> : EventSourceProtocol {
+    public typealias T = TSource.Event
+
+    public init(_ source: TSource, _ f: @escaping (T) -> U) {
         self.source = source
         self.f = f
     }
 
     public func addHandler(_ handler: @escaping (U) -> ()) -> Disposer {
-        let disposer = source.addHandler { [weak self] (t: X.Event) in
+        let disposer = source.addHandler { [weak self] (t: T) in
             guard let zelf = self else {
                 return
             }
@@ -15,8 +17,8 @@ public class EventSourceMap<X: EventSourceProtocol, U> : EventSourceProtocol {
         return disposer
     }
     
-    private let source: X
-    private let f: (X.Event) -> U
+    private let source: TSource
+    private let f: (T) -> U
 }
 
 extension EventSourceProtocol {

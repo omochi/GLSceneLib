@@ -16,6 +16,9 @@
 		D63EA3181F9DBAE100E9CBAA /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA3171F9DBAE100E9CBAA /* Property.swift */; };
 		D63EA31A1F9DC9B800E9CBAA /* EventMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA3191F9DC9B800E9CBAA /* EventMap.swift */; };
 		D63EA31C1F9DCF1500E9CBAA /* EventFlatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA31B1F9DCF1500E9CBAA /* EventFlatMap.swift */; };
+		D63EA31E1F9DDCA400E9CBAA /* EventCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA31D1F9DDCA400E9CBAA /* EventCombine.swift */; };
+		D63EA3201F9DE48F00E9CBAA /* WeakProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA31F1F9DE48F00E9CBAA /* WeakProperty.swift */; };
+		D63EA3221F9DF41100E9CBAA /* EventMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA3211F9DF41100E9CBAA /* EventMerge.swift */; };
 		D6A4F51A1F99DA6D00EC0C9B /* GLSceneLib_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D6A4F5181F99DA6D00EC0C9B /* GLSceneLib_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6A4F55B1F99DAB600EC0C9B /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5221F99DAB600EC0C9B /* Angle.swift */; };
 		D6A4F55C1F99DAB600EC0C9B /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5231F99DAB600EC0C9B /* ArrayExtension.swift */; };
@@ -83,6 +86,9 @@
 		D63EA3171F9DBAE100E9CBAA /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		D63EA3191F9DC9B800E9CBAA /* EventMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMap.swift; sourceTree = "<group>"; };
 		D63EA31B1F9DCF1500E9CBAA /* EventFlatMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFlatMap.swift; sourceTree = "<group>"; };
+		D63EA31D1F9DDCA400E9CBAA /* EventCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCombine.swift; sourceTree = "<group>"; };
+		D63EA31F1F9DE48F00E9CBAA /* WeakProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakProperty.swift; sourceTree = "<group>"; };
+		D63EA3211F9DF41100E9CBAA /* EventMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMerge.swift; sourceTree = "<group>"; };
 		D6A4F5151F99DA6D00EC0C9B /* GLSceneLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GLSceneLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A4F5181F99DA6D00EC0C9B /* GLSceneLib_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSceneLib_iOS.h; sourceTree = "<group>"; };
 		D6A4F5191F99DA6D00EC0C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,8 +177,11 @@
 				D604B2C71F9A003600482A27 /* EventSource.swift */,
 				D604B2C91F9A02DD00482A27 /* EventEmitter.swift */,
 				D63EA3171F9DBAE100E9CBAA /* Property.swift */,
+				D63EA31F1F9DE48F00E9CBAA /* WeakProperty.swift */,
 				D63EA3191F9DC9B800E9CBAA /* EventMap.swift */,
 				D63EA31B1F9DCF1500E9CBAA /* EventFlatMap.swift */,
+				D63EA31D1F9DDCA400E9CBAA /* EventCombine.swift */,
+				D63EA3211F9DF41100E9CBAA /* EventMerge.swift */,
 			);
 			path = Reactive;
 			sourceTree = "<group>";
@@ -404,9 +413,11 @@
 				D6A4F58D1F99DAB600EC0C9B /* ShaderProtocol.swift in Sources */,
 				D6A4F56C1F99DAB600EC0C9B /* Vector4.swift in Sources */,
 				D6A4F57E1F99DAB600EC0C9B /* GLVertexArray.swift in Sources */,
+				D63EA3201F9DE48F00E9CBAA /* WeakProperty.swift in Sources */,
 				D6A4F5881F99DAB600EC0C9B /* Scene.swift in Sources */,
 				D6A4F56D1F99DAB600EC0C9B /* WeakBox.swift in Sources */,
 				D6A4F5621F99DAB600EC0C9B /* GenericError.swift in Sources */,
+				D63EA31E1F9DDCA400E9CBAA /* EventCombine.swift in Sources */,
 				D6A4F56E1F99DAB600EC0C9B /* BasicSceneElementProtocol.swift in Sources */,
 				D63EA31A1F9DC9B800E9CBAA /* EventMap.swift in Sources */,
 				D604B2CC1F9A0AA900482A27 /* CompositeDisposer.swift in Sources */,
@@ -430,6 +441,7 @@
 				D6A4F57B1F99DAB600EC0C9B /* GLFunctions.swift in Sources */,
 				D6A4F57A1F99DAB600EC0C9B /* GLExtension.swift in Sources */,
 				D6A4F5771F99DAB600EC0C9B /* GLDataConvert.swift in Sources */,
+				D63EA3221F9DF41100E9CBAA /* EventMerge.swift in Sources */,
 				D6A4F5811F99DAB600EC0C9B /* ColorLineCirclePrimitive.swift in Sources */,
 				D6A4F55D1F99DAB600EC0C9B /* Assert.swift in Sources */,
 				D604B2C41F99FD7C00482A27 /* Disposer.swift in Sources */,
