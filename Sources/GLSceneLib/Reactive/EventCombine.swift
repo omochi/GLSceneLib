@@ -6,23 +6,31 @@ public class EventSourceCombineArray<TSource: EventSourceProtocol> : EventSource
     }
     
     public func addHandler(_ handler: @escaping ([T]) -> ()) -> Disposer {
-        var tArray: [T?] = Array.init(repeating: nil, count: tSourceArray.count)
+        let sink = Sink(tSourceArray.count, handler)
         
-        func emit(at index: Int, t: T) {
+        let cd = CompositeDisposer()
+        for (index, tSource) in tSourceArray.enumerated() {
+            cd.add(tSource.addHandler { sink.send(at: index, $0) })
+        }
+        
+        return cd.asDisposer()
+    }
+    
+    private class Sink {
+        public init(_ count: Int, _ handler: @escaping ([T]) -> ()) {
+            tArray = .init(repeating: nil, count: count)
+            self.handler = handler
+        }
+        
+        public func send(at index: Int, _ t: T) {
             tArray[index] = t
             if let tArray = tArray as? [T] {
                 handler(tArray)
             }
         }
         
-        let cd = CompositeDisposer()
-        for (index, tSource) in tSourceArray.enumerated() {
-            cd.add(tSource.addHandler { (t: T) in
-                emit(at: index, t: t)
-            })
-        }
-        
-        return cd.asDisposer()
+        private var tArray: [T?]
+        private let handler: ([T]) -> ()
     }
     
     private let tSourceArray: [TSource]

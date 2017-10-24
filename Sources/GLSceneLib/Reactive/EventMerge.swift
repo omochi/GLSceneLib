@@ -6,17 +6,25 @@ public class EventSourceMerge<TSource: EventSourceProtocol> : EventSourceProtoco
     }
     
     public func addHandler(_ handler: @escaping (T) -> ()) -> Disposer {
-        func emit(t: T) {
-            handler(t)
-        }
+        let sink = Sink(handler)
         
         let cd = CompositeDisposer()
         for tSource in tSourceArray {
-            cd.add(tSource.addHandler { (t: T) in
-                emit(t: t)
-            })
+            cd.add(tSource.addHandler { sink.send($0) })
         }
         return cd.asDisposer()
+    }
+    
+    public class Sink {
+        public init(_ handler: @escaping (T) -> ()) {
+            self.handler = handler
+        }
+        
+        public func send(_ t: T) {
+            handler(t)
+        }
+        
+        private let handler: (T) -> Void
     }
     
     private let tSourceArray: [TSource]
@@ -25,3 +33,4 @@ public class EventSourceMerge<TSource: EventSourceProtocol> : EventSourceProtoco
 public func merge<TSource: EventSourceProtocol>(_ tSourceArray: [TSource]) -> EventSource<TSource.Event> {
     return EventSourceMerge(tSourceArray).asEventSource()
 }
+

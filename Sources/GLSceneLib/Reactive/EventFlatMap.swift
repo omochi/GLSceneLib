@@ -8,21 +8,30 @@ public class EventSourceFlatMapLatest<TSource: EventSourceProtocol, USource: Eve
     }
     
     public func addHandler(_ handler: @escaping (U) -> ()) -> Disposer {
-        let cd = CompositeDisposer()
-        let disposer = source.addHandler { [weak self] (t: T) in
-            guard let zelf = self else {
-                return
-            }
-            
-            let uSource: USource = zelf.f(t)
-            
+        let sink = Sink(f, handler)
+        return source.addHandler { sink.send($0) }
+    }
+    
+    private class Sink {
+        public init(_ f: @escaping (T) -> USource,
+                    _ handler: @escaping (U) -> Void)
+        {
+            self.cd = .init()
+            self.f = f
+            self.handler = handler
+        }
+        
+        public func send(_ t: T) {
+            let uSource: USource = f(t)
             cd.dispose()
-            
-            cd.add(uSource.addHandler { (u: U) in
+            cd.add(uSource.addHandler { [handler] (u: U) in
                 handler(u)
             })
         }
-        return disposer
+        
+        private let cd: CompositeDisposer
+        private let f: (T) -> USource
+        private let handler: (U) -> Void
     }
     
     private let source: TSource

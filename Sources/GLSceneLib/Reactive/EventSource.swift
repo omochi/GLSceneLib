@@ -29,10 +29,6 @@ public class EventSource<Event> : EventSourceProtocol {
 }
 
 extension EventSource {
-    public static func of(_ x: Event) -> EventSource<Event> {
-        return Property<Event>(x).asEventSource()
-    }
-    
     public static func never() -> EventSource<Event> {
         return EventSource.init { handler in
             Disposer {}

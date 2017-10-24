@@ -7,14 +7,26 @@ public class EventSourceMap<TSource: EventSourceProtocol, U> : EventSourceProtoc
     }
 
     public func addHandler(_ handler: @escaping (U) -> ()) -> Disposer {
-        let disposer = source.addHandler { [weak self] (t: T) in
-            guard let zelf = self else {
-                return
+        let sink = Sink(f, handler)
+        return source.addHandler { sink.send($0) }
+    }
+    
+    private class Sink {
+        public init(
+            _ f: @escaping (T) -> U,
+            _ handler: @escaping (U) -> Void)
+        {
+            self.f = { (t: T) in
+                let u: U = f(t)
+                handler(u)
             }
-            let u = zelf.f(t)
-            handler(u)
         }
-        return disposer
+        
+        public func send(_ t: T) {
+            f(t)
+        }
+        
+        private let f: (T) -> Void
     }
     
     private let source: TSource
