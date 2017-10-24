@@ -19,6 +19,10 @@
 		D63EA31E1F9DDCA400E9CBAA /* EventCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA31D1F9DDCA400E9CBAA /* EventCombine.swift */; };
 		D63EA3201F9DE48F00E9CBAA /* WeakProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA31F1F9DE48F00E9CBAA /* WeakProperty.swift */; };
 		D63EA3221F9DF41100E9CBAA /* EventMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA3211F9DF41100E9CBAA /* EventMerge.swift */; };
+		D674FFD11F9EE72700F8E763 /* TextRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674FFD01F9EE72700F8E763 /* TextRenderer.swift */; };
+		D674FFD31F9EE7B600F8E763 /* TextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674FFD21F9EE7B600F8E763 /* TextElement.swift */; };
+		D674FFD51F9EEF3500F8E763 /* UILabelTextRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674FFD41F9EEF3500F8E763 /* UILabelTextRenderer.swift */; };
+		D674FFD71F9EF62300F8E763 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = D674FFD61F9EF62300F8E763 /* Display.swift */; };
 		D6A4F51A1F99DA6D00EC0C9B /* GLSceneLib_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D6A4F5181F99DA6D00EC0C9B /* GLSceneLib_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6A4F55B1F99DAB600EC0C9B /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5221F99DAB600EC0C9B /* Angle.swift */; };
 		D6A4F55C1F99DAB600EC0C9B /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5231F99DAB600EC0C9B /* ArrayExtension.swift */; };
@@ -39,7 +43,7 @@
 		D6A4F56B1F99DAB600EC0C9B /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5321F99DAB600EC0C9B /* Vector3.swift */; };
 		D6A4F56C1F99DAB600EC0C9B /* Vector4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5331F99DAB600EC0C9B /* Vector4.swift */; };
 		D6A4F56D1F99DAB600EC0C9B /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5341F99DAB600EC0C9B /* WeakBox.swift */; };
-		D6A4F56E1F99DAB600EC0C9B /* BasicSceneElementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5361F99DAB600EC0C9B /* BasicSceneElementProtocol.swift */; };
+		D6A4F56E1F99DAB600EC0C9B /* SceneElementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5361F99DAB600EC0C9B /* SceneElementProtocol.swift */; };
 		D6A4F56F1F99DAB600EC0C9B /* ExtrudeSolid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5371F99DAB600EC0C9B /* ExtrudeSolid.swift */; };
 		D6A4F5701F99DAB600EC0C9B /* LineCircleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5381F99DAB600EC0C9B /* LineCircleElement.swift */; };
 		D6A4F5711F99DAB600EC0C9B /* LineElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A4F5391F99DAB600EC0C9B /* LineElement.swift */; };
@@ -89,6 +93,10 @@
 		D63EA31D1F9DDCA400E9CBAA /* EventCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCombine.swift; sourceTree = "<group>"; };
 		D63EA31F1F9DE48F00E9CBAA /* WeakProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakProperty.swift; sourceTree = "<group>"; };
 		D63EA3211F9DF41100E9CBAA /* EventMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMerge.swift; sourceTree = "<group>"; };
+		D674FFD01F9EE72700F8E763 /* TextRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRenderer.swift; sourceTree = "<group>"; };
+		D674FFD21F9EE7B600F8E763 /* TextElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElement.swift; sourceTree = "<group>"; };
+		D674FFD41F9EEF3500F8E763 /* UILabelTextRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelTextRenderer.swift; sourceTree = "<group>"; };
+		D674FFD61F9EF62300F8E763 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		D6A4F5151F99DA6D00EC0C9B /* GLSceneLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GLSceneLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A4F5181F99DA6D00EC0C9B /* GLSceneLib_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSceneLib_iOS.h; sourceTree = "<group>"; };
 		D6A4F5191F99DA6D00EC0C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,7 +119,7 @@
 		D6A4F5321F99DAB600EC0C9B /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		D6A4F5331F99DAB600EC0C9B /* Vector4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector4.swift; sourceTree = "<group>"; };
 		D6A4F5341F99DAB600EC0C9B /* WeakBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
-		D6A4F5361F99DAB600EC0C9B /* BasicSceneElementProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSceneElementProtocol.swift; sourceTree = "<group>"; };
+		D6A4F5361F99DAB600EC0C9B /* SceneElementProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneElementProtocol.swift; sourceTree = "<group>"; };
 		D6A4F5371F99DAB600EC0C9B /* ExtrudeSolid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtrudeSolid.swift; sourceTree = "<group>"; };
 		D6A4F5381F99DAB600EC0C9B /* LineCircleElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineCircleElement.swift; sourceTree = "<group>"; };
 		D6A4F5391F99DAB600EC0C9B /* LineElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineElement.swift; sourceTree = "<group>"; };
@@ -255,14 +263,16 @@
 		D6A4F5351F99DAB600EC0C9B /* Element */ = {
 			isa = PBXGroup;
 			children = (
-				D6A4F5361F99DAB600EC0C9B /* BasicSceneElementProtocol.swift */,
+				D6A4F53C1F99DAB600EC0C9B /* SweepSurface.swift */,
+				D6A4F53D1F99DAB600EC0C9B /* SweepSurfaceShapes.swift */,
 				D6A4F5371F99DAB600EC0C9B /* ExtrudeSolid.swift */,
 				D6A4F5381F99DAB600EC0C9B /* LineCircleElement.swift */,
 				D6A4F5391F99DAB600EC0C9B /* LineElement.swift */,
 				D6A4F53A1F99DAB600EC0C9B /* MeshElement.swift */,
 				D6A4F53B1F99DAB600EC0C9B /* RenderSetting.swift */,
-				D6A4F53C1F99DAB600EC0C9B /* SweepSurface.swift */,
-				D6A4F53D1F99DAB600EC0C9B /* SweepSurfaceShapes.swift */,
+				D674FFD21F9EE7B600F8E763 /* TextElement.swift */,
+				D674FFD01F9EE72700F8E763 /* TextRenderer.swift */,
+				D674FFD41F9EEF3500F8E763 /* UILabelTextRenderer.swift */,
 			);
 			path = Element;
 			sourceTree = "<group>";
@@ -292,10 +302,12 @@
 				D6A4F54C1F99DAB600EC0C9B /* ColorLinePrimitive.swift */,
 				D6A4F54D1F99DAB600EC0C9B /* ColorLineShader.swift */,
 				D6A4F54E1F99DAB600EC0C9B /* ColorShader.swift */,
+				D674FFD61F9EF62300F8E763 /* Display.swift */,
 				D6A4F54F1F99DAB600EC0C9B /* DirectionalLight.swift */,
 				D6A4F5501F99DAB600EC0C9B /* Light.swift */,
 				D6A4F5511F99DAB600EC0C9B /* PhongShader.swift */,
 				D6A4F5521F99DAB600EC0C9B /* Scene.swift */,
+				D6A4F5361F99DAB600EC0C9B /* SceneElementProtocol.swift */,
 				D6A4F5531F99DAB600EC0C9B /* SceneElement.swift */,
 				D6A4F5541F99DAB600EC0C9B /* SceneNode.swift */,
 				D6A4F5551F99DAB600EC0C9B /* SceneRenderer.swift */,
@@ -398,6 +410,7 @@
 				D6A4F5721F99DAB600EC0C9B /* MeshElement.swift in Sources */,
 				D6A4F5751F99DAB600EC0C9B /* SweepSurfaceShapes.swift in Sources */,
 				D6A4F5641F99DAB600EC0C9B /* OpaqueColor.swift in Sources */,
+				D674FFD31F9EE7B600F8E763 /* TextElement.swift in Sources */,
 				D6A4F5741F99DAB600EC0C9B /* SweepSurface.swift in Sources */,
 				D6A4F55E1F99DAB600EC0C9B /* Box.swift in Sources */,
 				D6A4F55F1F99DAB600EC0C9B /* Cast.swift in Sources */,
@@ -418,8 +431,9 @@
 				D6A4F56D1F99DAB600EC0C9B /* WeakBox.swift in Sources */,
 				D6A4F5621F99DAB600EC0C9B /* GenericError.swift in Sources */,
 				D63EA31E1F9DDCA400E9CBAA /* EventCombine.swift in Sources */,
-				D6A4F56E1F99DAB600EC0C9B /* BasicSceneElementProtocol.swift in Sources */,
+				D6A4F56E1F99DAB600EC0C9B /* SceneElementProtocol.swift in Sources */,
 				D63EA31A1F9DC9B800E9CBAA /* EventMap.swift in Sources */,
+				D674FFD71F9EF62300F8E763 /* Display.swift in Sources */,
 				D604B2CC1F9A0AA900482A27 /* CompositeDisposer.swift in Sources */,
 				D63EA3181F9DBAE100E9CBAA /* Property.swift in Sources */,
 				D6A4F5651F99DAB600EC0C9B /* OptionalExtension.swift in Sources */,
@@ -441,6 +455,7 @@
 				D6A4F57B1F99DAB600EC0C9B /* GLFunctions.swift in Sources */,
 				D6A4F57A1F99DAB600EC0C9B /* GLExtension.swift in Sources */,
 				D6A4F5771F99DAB600EC0C9B /* GLDataConvert.swift in Sources */,
+				D674FFD11F9EE72700F8E763 /* TextRenderer.swift in Sources */,
 				D63EA3221F9DF41100E9CBAA /* EventMerge.swift in Sources */,
 				D6A4F5811F99DAB600EC0C9B /* ColorLineCirclePrimitive.swift in Sources */,
 				D6A4F55D1F99DAB600EC0C9B /* Assert.swift in Sources */,
@@ -451,6 +466,7 @@
 				D6A4F58A1F99DAB600EC0C9B /* SceneNode.swift in Sources */,
 				D604B2CA1F9A02DD00482A27 /* EventEmitter.swift in Sources */,
 				D6A4F58C1F99DAB600EC0C9B /* ShaderPrimitive.swift in Sources */,
+				D674FFD51F9EEF3500F8E763 /* UILabelTextRenderer.swift in Sources */,
 				D6A4F5601F99DAB600EC0C9B /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +506,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

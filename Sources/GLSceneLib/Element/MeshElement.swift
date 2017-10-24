@@ -1,4 +1,7 @@
-public class MeshElement : SceneElement, BasicSceneElementProtocol {
+public class MeshElement : SceneElement,
+    SettingPropertySceneElementProtocol,
+    VisiblePropertySceneElementProtocol
+{
     public typealias Vertex = PhongShader.Vertex
     
     public override required init() {

@@ -1,5 +1,7 @@
-
-public class LineCircleElement : SceneElement, BasicSceneElementProtocol {
+public class LineCircleElement : SceneElement,
+    SettingPropertySceneElementProtocol,
+    VisiblePropertySceneElementProtocol
+{
     public override init() {
         circle = ColorLineCirclePrimitive()
         super.init()

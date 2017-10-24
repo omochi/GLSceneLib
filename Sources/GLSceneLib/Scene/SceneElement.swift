@@ -1,4 +1,4 @@
-open class SceneElement {
+open class SceneElement : SceneElementProtocol {
     public init() {}
     
     public private(set) var nodes: [SceneNode] {

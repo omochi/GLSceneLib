@@ -1,4 +1,7 @@
-public class LineElement : SceneElement, BasicSceneElementProtocol {
+public class LineElement : SceneElement,
+    SettingPropertySceneElementProtocol,
+    VisiblePropertySceneElementProtocol
+{
     public override init() {
         line = ColorLinePrimitive()
         super.init()

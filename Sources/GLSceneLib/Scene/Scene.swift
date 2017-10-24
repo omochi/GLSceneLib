@@ -2,40 +2,45 @@
     import UIKit
 #endif
 
+import CoreGraphics
+
 public class Scene {
     public enum ElementLookupKey {
         case light
     }
     
     public init() {
-        rootNode = SceneNode()
-        
-        renderer = SceneRenderer()
-        
-        rootNode._setScene(self)
-        renderer.scene = self
-        
+        _rootNode = SceneNode()
+        _renderer = SceneRenderer()
+        display = Display()
         clearColor = Color(white: 0, alpha: 1)
+       
+        //
+
+        _renderer.scene = self
+        _rootNode._setScene(self)
     }
     
-    public private(set) var rootNode: SceneNode
-    
+    public var rootNode: SceneNode {
+        return _rootNode
+    }
+
+    public var display: Display
+    public var camera: Camera?
+
     public var clearColor: Color?
     public var backgroundRenderer: (() -> Void)?
-    
-    public var camera: Camera?
+    public var createTextRenderer: (() -> TextRenderer)?
     
     #if os(iOS)
     public func setViewSpec(view: UIView) {
-        guard let camera = camera else {
-            fatalError("camera is nil")
-        }
-        camera.setViewSpec(view: view)
+        display.size = Size(view.bounds.size)
+        display.pixelRatio = Float(view.contentScaleFactor)
     }
     #endif
     
     public func render() {
-        renderer.render()
+        _renderer.render(scene: self)
     }
     
     public func findLights() -> [Light] {
@@ -64,7 +69,13 @@ public class Scene {
         }
     }
     
+    public func warning(_ message: String) {
+        print("[warn] \(message)")
+    }
+    
     private var elementLookupTable: [ElementLookupKey: [SceneElement]] = [:]
-    private let renderer: SceneRenderer
+    
+    private let _renderer: SceneRenderer
+    private let _rootNode: SceneNode
 }
 

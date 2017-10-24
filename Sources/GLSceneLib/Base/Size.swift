@@ -1,7 +1,7 @@
 import CoreGraphics
 import DebugReflect
 
-public struct Size  : CustomStringConvertible, DebugReflectable {
+public struct Size: CustomStringConvertible, DebugReflectable {
     public init() {}
     
     public init(width: Float, height: Float) {

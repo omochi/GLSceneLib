@@ -8,6 +8,10 @@ public class SceneRenderer {
     public struct RenderElement {
         var node: SceneNode
         var element: SceneElement
+        
+        func render(renderer: SceneRenderer) {
+            element.render(with: renderer, node: node)
+        }
     }
     
     public init() {
@@ -16,7 +20,14 @@ public class SceneRenderer {
         phongShader = PhongShader()
     }
     
-    public weak var scene: Scene?
+    public var scene: Scene {
+        get {
+            return assertNotNone("scene") { _scene }
+        }
+        set {
+            _scene = newValue
+        }
+    }
     
     public private(set) var colorShader: ColorShader
     public private(set) var colorLineShader: ColorLineShader
@@ -26,74 +37,78 @@ public class SceneRenderer {
     public private(set) var projection: Matrix4x4 = .identity
     public private(set) var viewportSize: Size = Size()
     
-    public func getViewportTransform() -> Matrix4x4 {
+    // ndc to viewport
+    // viewport: origin=top left
+    public var viewportTransform: Matrix4x4 {
         let vw = viewportSize.width
         let vh = viewportSize.height
-        return Matrix4x4.scaling(Vector3(vw / 2.0, vh / 2.0, 1.0)) *
+        return Matrix4x4.scaling(Vector3(vw / 2.0, -vh / 2.0, 1)) *
             Matrix4x4.translation(Vector3(vw / 2.0, vh / 2.0, 0))
     }
+
+    public func createTextRenderer() -> TextRenderer? {
+        return scene.createTextRenderer?()
+    }
     
-    public func render() {
-        guard let scene = scene else {
-            fatalError("scene is nil")
-        }
-        
+    public func render(scene: Scene) {
         scene.rootNode.updateWorldTransform()
-        
-        guard let camera = scene.camera else {
-            fatalError("camera is nil")
-        }
-        guard let cameraNode = camera.nodes.first else {
-            fatalError("camera node is nil")
-        }
-        self.viewing = cameraNode.worldTransform.inverted()
-        self.projection = camera.projection
-        self.viewportSize = camera.viewportSize
-        
-        setBasicTransformToShader(colorShader)
-        setBasicTransformToShader(colorLineShader)
-        colorLineShader.viewportSize = self.viewportSize
-        setBasicTransformToShader(phongShader)
-        
-        let lights = scene.findLights()
-        phongShader.lights = lights
         
         if let clearColor = scene.clearColor {
             GL.clearColor(clearColor.red, clearColor.green, clearColor.blue, clearColor.alpha)
             GL.clear(GLbitfield(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT))
         }
         
+        let display = scene.display
+        self.viewportSize = display.size
+    
         GL.viewport(0, 0,
-                    GLsizei(camera.viewportSize.width * camera.pixelRatio),
-                    GLsizei(camera.viewportSize.height * camera.pixelRatio))
+                    GLsizei(viewportSize.width * display.pixelRatio),
+                    GLsizei(viewportSize.height * display.pixelRatio))
         
         scene.backgroundRenderer?()
         
-        renderElements.removeAll(keepingCapacity: true)
-        collectRenderElements(scene: scene, result: &renderElements)
-        
-        renderElements.sort { a, b in
-            if a.element.transparent != b.element.transparent {
-                return !a.element.transparent
-            }
-            return false
+        guard let camera = scene.camera else {
+            scene.warning("camera is none")
+            return
+        }
+        guard let cameraNode = camera.nodes.first else {
+            scene.warning("camera node is none")
+            return
         }
         
-        for e in renderElements {
-            e.element.render(with: self, node: e.node)
+        self.viewing = cameraNode.worldTransform.inverted()
+        self.projection = camera.projeciton(width: viewportSize.width, height: viewportSize.height)
+        
+        let lights = scene.findLights()
+        
+        setBasicTransformToShader(colorShader)
+        setBasicTransformToShader(colorLineShader)
+        colorLineShader.viewportSize = self.viewportSize
+        setBasicTransformToShader(phongShader)
+        phongShader.lights = lights
+
+        var elements: [RenderElement] = collectRenderElements(scene: scene)
+        
+        let opaqueElements = elements.filter { !$0.element.transparent }
+        let transparentElements = elements.filter { $0.element.transparent }
+        
+        elements = opaqueElements + transparentElements
+        
+        elements.forEach { element in
+            element.render(renderer: self)
         }
     }
     
-    public func collectRenderElements(scene: Scene, result: inout [RenderElement]) {
+    private func collectRenderElements(scene: Scene) -> [RenderElement] {
+        var result = [RenderElement]()
         collectRenderElements(node: scene.rootNode, result: &result)
+        return result
     }
     
-    public func collectRenderElements(node: SceneNode, result: inout [RenderElement]) {
-        for element in node.elements {
-            if element.renderable {
-                result.append(RenderElement(node: node, element: element))
-            }
-        }
+    private func collectRenderElements(node: SceneNode, result: inout [RenderElement]) {        
+        let elements: [SceneElement] = node.elements.filter { $0.renderable }
+        let renderElements: [RenderElement] = elements.map { RenderElement(node: node, element: $0) }
+        result.append(contentsOf: renderElements)
         
         for child in node.children {
             collectRenderElements(node: child, result: &result)
@@ -104,7 +119,7 @@ public class SceneRenderer {
         shader.viewing = self.viewing
         shader.projection = self.projection
     }
-    
-    private var renderElements: [RenderElement] = []
+
+    private weak var _scene: Scene?
 }
 
